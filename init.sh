@@ -6,7 +6,11 @@ REPO=${REPO:-https://github.com/rossedman/werkstation.git}
 CLONE_DIR=${CLONE_DIR:-/home/"${SUDO_USER}"/src/werkstation}
 
 # install initial packages
-apt-get install -y ansible git
+if [ "$(uname -s)" = "Darwin" ]; then
+	brew install ansible git
+else
+	apt-get install -y ansible git
+fi
 
 # clone this repo
 mkdir -p "${CLONE_DIR}"
