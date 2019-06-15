@@ -1,3 +1,48 @@
 ---
-- debug:
-    msg: "Ubuntu!"
+- name: install base packages
+  apt:
+    name:
+      - curl
+      - git
+      - zsh
+      - vim
+
+- name: install classic snaps
+  snap:
+    name: 
+      - go
+      - code
+      - slack
+      - spotify
+      - microk8s
+      - kubectl
+      - task 
+    classic: yes
+
+- name: install snaps
+  snap:
+    name:
+      - docker
+      - lxd
+      - etcd
+      - chromium
+      - terraform
+      - http
+
+- name: install beta snaps
+  snap:
+    name: conda
+    channel: beta
+
+- name: add docker group
+  group:
+    name: docker
+    state: present
+
+- name: setup user
+  user:
+    name: rossedman
+    shell: /bin/zsh
+    groups: docker
+    append: yes
+

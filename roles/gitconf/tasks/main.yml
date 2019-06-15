@@ -1,0 +1,22 @@
+---
+
+- name: "configure git email"
+  git_config:
+    name: user.email
+    value: "rossedman@github.com"
+    scope: global
+  become_user: rossedman
+
+- name: "configure git username"
+  git_config:
+    name: user.name
+    value: "Ross Edman"
+    scope: global
+  become_user: rossedman
+
+- name: configure github"
+  git_config:
+    name: github.user
+    value: rossedman
+    scope: global
+  become_user: rossedman
