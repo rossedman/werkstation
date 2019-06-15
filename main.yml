@@ -1,0 +1,7 @@
+---
+- hosts: "{{ host | default('localhost') }}"
+  vars_files:
+    - "roles/{{ ansible_distribution | lower }}/vars/main.yml"
+  roles:
+    - { role: ubuntu, when: "ansible_distribution == 'Ubuntu'" }
+    - { role: macosx, when: "ansible_distribution == 'MacOSX'" }
