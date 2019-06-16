@@ -4,6 +4,4 @@
 - include: docker.yml
 - include: git.yml
 - include: zsh.yml
-
-
-
+- include: cron.yml
