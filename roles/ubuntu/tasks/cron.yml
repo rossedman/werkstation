@@ -1,0 +1,7 @@
+---
+- name: ansible-pull cron
+  cron:
+    name: "ansible-pull"
+    minute: "0"
+    hour: "1"
+    job: "ansible-pull -U https://github.com/rossedman/werkstation.git main.yml"
