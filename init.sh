@@ -9,7 +9,9 @@ CLONE_DIR=${CLONE_DIR:-/home/"${SUDO_USER}"/src/werkstation}
 if [ "$(uname -s)" = "Darwin" ]; then
 	brew install ansible git
 else
-	apt-get install -y ansible git
+	apt-add-repository ppa:ansible/ansible
+	apt update
+	apt-get install -y ansible git vim
 fi
 
 # clone this repo
