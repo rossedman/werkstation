@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Make vim the default editor.
+export EDITOR='vim';
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+
+# Golang
+export GOPATH=$HOME/go
+
+# Path settings
+export PATH=./bin:$HOME/bin:/usr/local/bin:$GOPATH/bin:$GOROOT/bin:$PATH

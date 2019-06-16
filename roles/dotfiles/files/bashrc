@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# source custom stuff
+source $HOME/.aliases
+source $HOME/.exports
+source $HOME/.functions

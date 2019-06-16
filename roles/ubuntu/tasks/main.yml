@@ -4,8 +4,9 @@
     name:
       - curl
       - git
+      - make
       - zsh
-      - vim
+      - vim-nox
 
 - name: install classic snaps
   snap:

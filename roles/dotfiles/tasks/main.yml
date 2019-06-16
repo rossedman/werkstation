@@ -1,0 +1,13 @@
+---
+- name: install files
+  copy:
+    src: "{{ item }}"
+    dest: "~/.{{ item }}"
+  become_user: rossedman
+  with_items:
+    - aliases
+    - bashrc
+    - exports
+    - functions
+    - gitignore
+    - zshrc
