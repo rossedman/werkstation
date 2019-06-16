@@ -9,14 +9,13 @@
 
 - name: install classic snaps
   snap:
-    name: 
+    name:
       - go
       - code
       - slack
-      - spotify
       - microk8s
       - kubectl
-      - task 
+      - task
     classic: yes
 
 - name: install snaps
@@ -28,6 +27,7 @@
       - chromium
       - terraform
       - http
+      - spotify
 
 - name: install beta snaps
   snap:
