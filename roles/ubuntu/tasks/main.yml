@@ -3,9 +3,7 @@
 - include: snaps.yml
 - include: docker.yml
 - include: git.yml
-- include: ssh.yml
 - include: zsh.yml
-- include: vim.yml
 
 
 
