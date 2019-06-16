@@ -10,24 +10,6 @@
     state: directory
     mode: '0700'
 
-- name: write private ssh key
-  copy:
-    dest: /home/rossedman/.ssh/{{ item.name }}
-    content: "{{ item.private }}"
-    owner: rossedman
-    group: rossedman
-    mode: '0600'
-  with_items: ssh_keys
-
-- name: write public ssh key
-  copy:
-    dest: /home/rossedman/.ssh/{{ item.name }}.pub
-    content: "{{ item.public }}"
-    owner: rossedman
-    group: rossedman
-    mode: '0644'
-  with_items: ssh_keys
-
 - name: disable password authentication
   lineinfile:
     dest: /etc/ssh/sshd_config

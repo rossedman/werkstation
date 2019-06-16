@@ -1,3 +1,4 @@
+---
 - name: clone oh-my-zsh for users
   tags:
     # Suppress warning: [ANSIBLE0006] git used in place of git module
