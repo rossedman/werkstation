@@ -3,6 +3,5 @@
 On Linux:
 
 ```
-apt-get install -y curl
-curl -S https://raw.githubusercontent.com/rossedman/werkstation/master/init.sh | sudo bash
+apt-get install -y curl && curl -k -L https://raw.githubusercontent.com/rossedman/werkstation/master/init.sh | sudo bash
 ```
