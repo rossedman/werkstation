@@ -1,49 +1,11 @@
 ---
-- name: install base packages
-  apt:
-    name:
-      - curl
-      - git
-      - make
-      - zsh
-      - vim-nox
+- include: apt.yml
+- include: snaps.yml
+- include: docker.yml
+- include: git.yml
+- include: ssh.yml
+- include: zsh.yml
+- include: vim.yml
 
-- name: install classic snaps
-  snap:
-    name:
-      - go
-      - code
-      - slack
-      - microk8s
-      - kubectl
-      - task
-    classic: yes
 
-- name: install snaps
-  snap:
-    name:
-      - docker
-      - lxd
-      - etcd
-      - chromium
-      - terraform
-      - http
-      - spotify
-
-- name: install beta snaps
-  snap:
-    name: conda
-    channel: beta
-
-- name: add docker group
-  group:
-    name: docker
-    state: present
-
-- name: setup user
-  user:
-    name: rossedman
-    shell: /bin/zsh
-    groups: docker
-    append: yes
 

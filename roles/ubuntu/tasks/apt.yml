@@ -1,0 +1,9 @@
+---
+- name: install base packages
+  apt:
+    name:
+      - curl
+      - git
+      - make
+      - zsh
+      - vim-nox

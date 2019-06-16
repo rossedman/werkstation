@@ -1,0 +1,47 @@
+---
+- name: add user to the sudoers
+  copy:
+    dest: "/etc/sudoers.d/rossedman"
+    content: "rossedman  ALL=(ALL)  NOPASSWD: ALL"
+
+- name: create ssh directory
+  file:
+    path: /home/rossedman/.ssh
+    state: directory
+    mode: '0700'
+
+- name: write private ssh key
+  copy:
+    dest: /home/rossedman/.ssh/{{ item.name }}
+    content: "{{ item.private }}"
+    owner: rossedman
+    group: rossedman
+    mode: '0600'
+  with_items: ssh_keys
+
+- name: write public ssh key
+  copy:
+    dest: /home/rossedman/.ssh/{{ item.name }}.pub
+    content: "{{ item.public }}"
+    owner: rossedman
+    group: rossedman
+    mode: '0644'
+  with_items: ssh_keys
+
+- name: disable password authentication
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^PasswordAuthentication'
+    line: "PasswordAuthentication no"
+    state: present
+    backup: yes
+
+- name: disable root login
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^PermitRootLogin'
+    line: "PermitRootLogin no"
+    state: present
+    backup: yes
+  notify:
+    - restart ssh
