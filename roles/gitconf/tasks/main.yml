@@ -1,5 +1,4 @@
 ---
-
 - name: "configure git email"
   git_config:
     name: user.email
