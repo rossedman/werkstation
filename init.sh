@@ -3,6 +3,7 @@
 set -e
 
 REPO=${REPO:-https://github.com/rossedman/werkstation.git}
+VAULT_FILE=${VAULT_FILE:-~/.werkstation.yml}
 
 # install initial packages
 if [ "$(uname -s)" = "Darwin" ]; then
@@ -13,4 +14,4 @@ else
 	apt-get install -y ansible git vim
 fi
 
-ansible-pull -U ${REPO} main.yml
+ansible-pull -U ${REPO} --vault-password-file ${VAULT_FILE} main.yml
