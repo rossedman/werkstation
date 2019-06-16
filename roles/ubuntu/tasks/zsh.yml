@@ -25,7 +25,7 @@
   become: yes
   user:
     name: 'rossedman'
-    shell: /bin/zsh
+    shell: /usr/bin/zsh
 
 - name: install files
   copy:
