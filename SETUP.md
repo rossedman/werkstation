@@ -135,3 +135,10 @@ microk8s.start
 microk8s.kubelet get nodes
 microk8s.kubelet enabl registry istio
 ```
+
+## Pantheon
+
+```
+sudo add-apt-repository ppa:elementary-os/stable
+sudo apt install elementary-desktop
+```
